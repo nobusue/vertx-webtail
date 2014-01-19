@@ -10,7 +10,7 @@ timerで一定時間おきにファイルサイズをチェックし、ファイ
 一応、ファイルの読み込み部分はファイルサイズが大きくなっても耐えられるよう、NIO2のSeekableByteChannelとByteBufferを利用してランダムアクセスを行っています。
 
 このサンプルは、2014/1/17開催の[新春恒例GGX2013ロンドン報告＆LT大会！ - JGGUG G*ワークショップZ Jan 2014](http://jggug.doorkeeper.jp/events/8205)で発表した内容に、多少手を加えたものです。
-発表資料は[こちら](www.slideshare.net/nobusue/gws-20140117-lt)です。
+発表資料は[こちら](http://www.slideshare.net/nobusue/gws-20140117-lt)です。
 
 # 前提条件
 * JDK7以上
