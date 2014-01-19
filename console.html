@@ -1,0 +1,37 @@
+<html>
+<head><title>Webtail using Vert.x</title></head>
+<body>
+<script>
+    var socket;
+    if (window.WebSocket) {
+        socket = new WebSocket("ws://localhost:8080/webtail");
+        socket.onmessage = function(event) {
+            var mes = event.data;
+            var logE = document.getElementById("log");
+            //alert("Received data from websocket: " + mes);
+            if (mes == "<<truncated>>") {
+              logE.innerText = "";
+            } else {
+              logE.innerText += mes;
+            }
+        }
+        socket.onopen = function(event) {
+            alert("Web Socket opened!");
+        };
+        socket.onclose = function(event) {
+            alert("Web Socket closed.");
+        };
+    } else {
+        alert("Your browser does not support Websockets. (Use Chrome/Safari)");
+    }
+
+    function clearLog(){
+      var logE = document.getElementById("log");
+      logE.innerText = "";
+    }
+</script>
+File content:
+<input type="button" value="clear" onclick="clearLog()"/>
+<div id="log" style="border-style:groove; height:80%; overflow:auto;"></div>
+</body>
+</html>
